@@ -283,8 +283,8 @@ class Estimation extends Command {
         str += (Math.floor(body.data.week.coins*10000)/10000) + " ZEC / Semaine \n\n";
         str += Math.floor(body.data.month.euros) + " € / Mois \n";
         str += (Math.floor(body.data.month.coins*10000)/10000) + " ZEC / Mois \n\n";
-        str += "En moyenne " + Math.floor(0.1/body.data.hour.coins) + " heures pour faire 0.1 ZEC soit "
-        + (Math.floor((0.1/body.data.day.coins)*10)/10) + " jours\n\n"
+        str += "En moyenne " + Math.floor(0.05/body.data.hour.coins) + " heures pour faire 0.05 ZEC soit "
+        + (Math.floor((0.05/body.data.day.coins)*10)/10) + " jours\n\n"
 
 
 

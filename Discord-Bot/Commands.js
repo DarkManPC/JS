@@ -34,7 +34,8 @@ class Instruction{
       }
     }
     if(msg.content.startsWith("!")){
-      msg.channel.send("J'ai pas ça en stock, vois avec les Lopez de Clermont !");
+      msg.channel.send("J'ai pas ça en stock, vois avec les Lopez de Clermont !\n");
+      this.com[2].action(msg);
     }
   }
 }

@@ -14,6 +14,7 @@ class Instruction{
     var balance = new Balance();
     var esti = new Estimation();
     var paie = new Paiement();
+    var tot = new Total();
     this.com = [];
     this.com.push(tintin);
     this.com.push(bonjour);
@@ -22,6 +23,7 @@ class Instruction{
     this.com.push(balance);
     this.com.push(esti);
     this.com.push(paie);
+    this.com.push(tot);
     this.com.push(btc);
     this.com.push(eth);
     this.com.push(zec);
@@ -242,6 +244,40 @@ class Worker extends Command {
       }
 
       msg.channel.send(str);
+    });
+
+
+
+  }
+}
+
+class Total extends Command {
+
+  constructor(){
+    super();
+    this.word = '!total';
+
+  }
+
+
+
+  find (msg){
+
+    return msg.content.startsWith(this.word);
+  }
+
+  action (msg){
+    const API = "https://api.nanopool.org/v1/zec/payments/t1U7b3SkWcWBiZJL2UeaExHTyz7BpDKCuuw";
+    snekfetch.get(API).then(r => {
+      let body = r.body;
+      let amounts = 0
+      let str = ""
+
+      for(let i = 0;i < body.data.length; i++ ){
+        amounts += body.data[i].amount;
+      }
+
+      msg.channel.send(amounts + " ZEC depuis le debut sur nanopool");
     });
 
 
